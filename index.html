@@ -1,192 +1,352 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sudarvizhi M - BCA Graduate Portfolio">
+    <title>Sudarvizhi M | Portfolio</title>
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --navy: #14213d;
+            --blue: #2563eb;
+            --light: #f4f7fc;
+            --white: #ffffff;
+            --text: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #84a6e9;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 75px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--light);
+            color: var(--text);
+            line-height: 1.7;
         }
 
         header {
-            background-color: #941919;
-            color: #fff;
+            background: linear-gradient(135deg, #14213d, #2563eb);
+            color: white;
             text-align: center;
-            padding: 2rem 0;
-            position: relative; /* Add this */
+            padding: 65px 20px;
         }
 
-        .header-content h1 {
-            font-size: 2.5rem;
-        }
-
-        /* Add styles for the round profile picture */
         .profile-picture {
-            width: 100px; /* Adjust the size as needed */
-            height: 100px;
-            border-radius: 75%; /* Create a circular shape */
-            object-fit: cover; /* To ensure the image fills the circular area */
-            position: absolute; /* Add this */
-            top: 75px; /* Adjust top position as needed */
-            left: 75px; /* Adjust left position as needed */
+            width: 135px;
+            height: 135px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            margin-bottom: 15px;
+        }
+
+        header h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: #e2e8f0;
+            margin-bottom: 20px;
         }
 
         nav {
-            background-color: #333;
-            color: #fff;
+            background: var(--navy);
+            padding: 14px 10px;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
 
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 20px;
-        }
-
-        nav ul li a {
+        nav a {
+            color: white;
             text-decoration: none;
-            color: #fff;
+            margin: 0 12px;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            color: #93c5fd;
+        }
+
+        .container {
+            width: min(1000px, 92%);
+            margin: 35px auto;
         }
 
         .section-content {
-            background-color: #fff;
-            padding: 2rem;
-            margin: 1rem;
-            border-radius: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: justify;
+            background: var(--white);
+            padding: 28px;
+            margin-bottom: 24px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(15, 23, 42, 0.06);
+            border: 1px solid #e5eaf2;
         }
 
-        .download-button {
-            background-color: #333;
-            color: #fff;
-            padding: 0.5rem 1rem;
-            text-decoration: none;
+        h2 {
+            color: var(--navy);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        h2::after {
+            content: "";
+            display: block;
+            width: 45px;
+            height: 3px;
+            background: var(--blue);
+            margin-top: 7px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill {
+            background: #eaf1ff;
+            color: #1d4ed8;
+            padding: 7px 14px;
             border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .project {
+            padding: 18px;
+            background: #f8fafc;
+            border-left: 4px solid var(--blue);
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+
+        .project h3 {
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .button {
             display: inline-block;
-            margin-top: 10px;
-            align-self: center;
+            background: var(--blue);
+            color: white;
+            padding: 11px 20px;
+            border-radius: 7px;
+            text-decoration: none;
+            margin: 8px 8px 0 0;
+            font-weight: bold;
         }
 
-        .download-button:hover {
-            background-color: #555;
+        .button:hover {
+            background: #1d4ed8;
+        }
+
+        .secondary {
+            background: transparent;
+            border: 1px solid white;
+        }
+
+        .secondary:hover {
+            background: rgba(255,255,255,0.12);
+        }
+
+        .contact-links a {
+            color: var(--blue);
+            margin-right: 16px;
+            overflow-wrap: anywhere;
         }
 
         footer {
             text-align: center;
-            padding: 1rem 0;
-            background-color: #333;
-            color: #fff;
+            padding: 24px 12px;
+            background: var(--navy);
+            color: white;
         }
 
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
+        @media (max-width: 600px) {
+            header {
+                padding: 45px 15px;
+            }
+
+            nav a {
+                margin: 5px 7px;
+            }
+
+            .section-content {
+                padding: 20px;
+            }
         }
     </style>
 </head>
+
 <body>
+
     <header>
-        <div class="header-content">
-            <!-- Add your profile picture here -->
-            <img src="sudar photo.jpg" alt="Your Profile Picture" class="profile-picture">
-            <h1>Sudarvizhi M</h1>
-            <p>Am Student</p>
-        </div>
+        <img
+            src="sudar_photo.jpg"
+            alt="Sudarvizhi M profile photo"
+            class="profile-picture"
+        >
+
+        <h1>Sudarvizhi M</h1>
+        <p>BCA Graduate | Fresher | Aspiring Professional</p>
+
+        <a href="#projects" class="button">View My Projects</a>
+        <a href="sudarvizhi%20resume.pdf"
+           target="_blank"
+           rel="noopener"
+           class="button secondary">View Resume</a>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#resume">Resume</a></li>
-           
-        </ul>
+    <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
     </nav>
 
-    <section id="about">
-        <div class="section-content">
+    <main class="container">
+
+        <section id="about" class="section-content">
             <h2>About Me</h2>
-            <p>I'm a <b>Student</b> "A motivated BCA graduate with a strong foundation in Java, Python, and database management.
-                 Passionate about software development and eager to contribute to innovative projects. Seeking an entry-level role in a dynamic IT company where I can apply my technical and problem-solving skills."7 days ago 
+            <p>
+                I am a BCA graduate with a foundation in programming,
+                database management, and web technologies. I am a quick
+                learner with a positive attitude, adaptability, and a
+                willingness to develop new skills. I am looking for an
+                entry-level opportunity where I can learn, contribute
+                to a team, and grow professionally.
             </p>
+        </section>
 
-        </div>
-    </section>
-
-    <section id="education">
-        <div class="section-content">
+        <section id="education" class="section-content">
             <h2>Education</h2>
-            <p>Bharathidasan University  - BCA</p>
-            
-            
-        </div>
-    </section>
+            <h3>Bachelor of Computer Applications (BCA)</h3>
+            <p>Sri Saradha College for Women, Perambalur</p>
+            <p>Bharathidasan University | Graduated in 2026</p>
+        </section>
 
-    <section id="skills">
-        <div class="section-content">
-            <h2>Skills</h2>
-            <ul>
-                <li>C</li>
-                <li>C++</li>
-                <li>Java</li>
-                <li>Python</li>
-                <li>DBMS</li>
-                <li>Web Development</li>
-            </ul>
-        </div>
-    </section>
+        <section id="skills" class="section-content">
+            <h2>Technical Skills</h2>
+            <div class="skills">
+                <span class="skill">C</span>
+                <span class="skill">C++</span>
+                <span class="skill">Java</span>
+                <span class="skill">VB.NET</span>
+                <span class="skill">DBMS</span>
+                <span class="skill">HTML</span>
+                <span class="skill">CSS</span>
+                <span class="skill">ServiceNow</span>
+                <span class="skill">Import Sets</span>
+                <span class="skill">Transform Maps</span>
+                <span class="skill">Dot-Walking</span>
+            </div>
 
-    <section id="projects">
-        <div class="section-content">
+            <h2 style="margin-top: 25px;">Soft Skills</h2>
+            <div class="skills">
+                <span class="skill">Quick Learner</span>
+                <span class="skill">Adaptability</span>
+                <span class="skill">Communication</span>
+                <span class="skill">Positive Attitude</span>
+                <span class="skill">Typing</span>
+            </div>
+        </section>
+
+        <section id="projects" class="section-content">
             <h2>Projects</h2>
-            <ul>
-                <li><a href="#">Digital Portfolio</a></li>
-                <!-- Add more project links here -->
-            </ul>
-        </div>
-    </section>
 
-    <section id="resume">
-    
-        <div class="section-content">
-            <center>
+            <div class="project">
+                <h3>Automated Data Import and Relationship Mapping</h3>
+                <p>
+                    A ServiceNow project exploring data import using
+                    Import Sets, Transform Maps, and Dot-Walking to
+                    map and access related record information.
+                </p>
+                <a
+                    class="button"
+                    href="https://github.com/sudarvizhi18/Automating-data-import-and-relationship-mapping-using-Import-sets-dot-walking-"
+                    target="_blank"
+                    rel="noopener"
+                >View Project</a>
+            </div>
+
+            <div class="project">
+                <h3>Image-Based 3D Object Reconstruction</h3>
+                <p>
+                    An academic project focused on state-of-the-art
+                    approaches and trends in 3D object reconstruction
+                    using deep learning.
+                </p>
+                <p><strong>Technologies:</strong> C++, VB.NET</p>
+                <p>
+                    Add the correct GitHub project link here when
+                    the repository is available.
+                </p>
+            </div>
+
+            <div class="project">
+                <h3>Digital Portfolio</h3>
+                <p>
+                    A personal website presenting my education,
+                    technical skills, projects, and resume using HTML
+                    and CSS.
+                </p>
+            </div>
+        </section>
+
+        <section id="resume" class="section-content">
             <h2>Resume</h2>
-            <a href="sudarvizhi resume.pdf" target="_blank" class="download-button">Download CV</a>
-        </center>
-        </div>
-        
-    </section>
+            <p>
+                View my resume to learn more about my education,
+                skills, and qualifications.
+            </p>
+            <a
+                href="sudarvizhi%20resume.pdf"
+                target="_blank"
+                rel="noopener"
+                class="button"
+            >View / Download Resume</a>
+        </section>
+
+        <section id="contact" class="section-content">
+            <h2>Contact</h2>
+            <p>
+                I am open to suitable entry-level opportunities
+                and professional learning experiences.
+            </p>
+            <div class="contact-links">
+                <p>
+                    GitHub:
+                    <a href="https://github.com/sudarvizhi18"
+                       target="_blank"
+                       rel="noopener">Visit my profile</a>
+                </p>
+                <p>
+                    Email: Add your professional email address here.
+                </p>
+                <p>
+                    LinkedIn: Add your LinkedIn profile link here.
+                </p>
+            </div>
+        </section>
+
+    </main>
 
     <footer>
-        <p>&copy; 2025 Sudarvizhi M</p>
+        <p>&copy; 2026 Sudarvizhi M. All rights reserved.</p>
     </footer>
 
-    <script>
-        // Smooth scrolling to section when clicking on navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
 </body>
 </html>
